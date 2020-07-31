@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2   
+    - uses: actions/checkout@v2
     - name: Publish Docker Images to GPR
       uses: matootie/github-docker@v3.0.0
       with:
@@ -33,5 +33,4 @@ jobs:
         # Any additional build arguments to use when building the image, separated by newline.
         # Where should GitHub Docker find the Dockerfile, relative to the root of the repository.
         context: .
-        # The repository to push the image to. Defaults to the current repository. Must be specified in format user/repo.
         repository: devops
