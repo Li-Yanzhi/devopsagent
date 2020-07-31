@@ -67,11 +67,11 @@ fi
 print_header "2. Downloading and installing Azure Pipelines agent..."
 
 if [ -z "$AGENT_URL" ]; then
-  print_header "   $AGENT_URL"
-  curl -LsS $AGENT_URL | tar -xz & wait $!
-else
   print_header "   $AZP_AGENTPACKAGE_URL"
   curl -LsS $AZP_AGENTPACKAGE_URL | tar -xz & wait $!
+else
+  print_header "   $AGENT_URL"
+  curl -LsS $AGENT_URL | tar -xz & wait $!
 fi
 
 # print_header "   $AZP_AGENTPACKAGE_URL"
