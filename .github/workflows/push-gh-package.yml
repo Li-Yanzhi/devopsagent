@@ -10,9 +10,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  tag: ${{ github.run_number }}
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,11 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      
-    - name: echo tag
-      run: echo ${{ env.tag }}
-      
+    - uses: actions/checkout@v2   
     - name: Publish Docker Images to GPR
       uses: matootie/github-docker@v3.0.0
       with:
@@ -36,7 +29,7 @@ jobs:
         # The desired name for the image. Defaults to current repository name.
         imageName: devopsagent
         # The desired tag for the image. Defaults to latest. Optionally accepts multiple tags separated by newline.
-        tag: ${{ env.tag }}
+        tag: ${{ github.run_number }}
         # Any additional build arguments to use when building the image, separated by newline.
         # Where should GitHub Docker find the Dockerfile, relative to the root of the repository.
         context: .
