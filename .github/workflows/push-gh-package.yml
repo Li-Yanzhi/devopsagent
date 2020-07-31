@@ -24,6 +24,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      
+    - name: echo tag
+      run: echo ${{ env.tag }}
+      
     - name: Publish Docker Images to GPR
       uses: matootie/github-docker@v3.0.0
       with:
