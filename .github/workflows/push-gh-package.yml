@@ -29,7 +29,7 @@ jobs:
         # The desired name for the image. Defaults to current repository name.
         imageName: devopsagent
         # The desired tag for the image. Defaults to latest. Optionally accepts multiple tags separated by newline.
-        tag: latest
+        tag: ${{ github.run_number }}
         # Any additional build arguments to use when building the image, separated by newline.
         # Where should GitHub Docker find the Dockerfile, relative to the root of the repository.
         context: .
